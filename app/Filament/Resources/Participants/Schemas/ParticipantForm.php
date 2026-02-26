@@ -2,11 +2,14 @@
 
 namespace App\Filament\Resources\Participants\Schemas;
 
+use App\Enums\ObjectPronouns;
+use App\Enums\SubjectPronouns;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\FusedGroup;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Schema;
@@ -33,8 +36,14 @@ class ParticipantForm
                                     ->required(),
                                 TextInput::make('surname')
                                     ->required(),
-                                TextInput::make('pronouns')
-                                    ->required(),
+                                FusedGroup::make([
+                                    Select::make('subjectPronoun')
+                                        ->options(SubjectPronouns::class),
+                                    Select::make('objectPronoun')
+                                        ->options(ObjectPronouns::class),
+                                ])
+                                    ->label(__('Pronouns'))
+                                    ->columns(),
                                 DatePicker::make('dob')
                                     ->label(__('Date of birth'))
                                     ->required(),

@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->index();
             $table->string('firstName');
             $table->string('surname');
-            $table->string('pronouns');
+            $table->string('subjectPronoun');
+            $table->string('objectPronoun');
             $table->string('email');
             $table->string('telephone');
             $table->longText('address');
