@@ -11,7 +11,7 @@ enum Referrers: string implements HasLabel
     case PriorExperience = 'Prior experience';
     case MentalHealthServices = 'Community or mental health services';
     case HealthProfessional = 'Health professional (eg: counsellor, psychologist)';
-    case GP = 'My GP';
+    case GP = 'GP, or adjacent clinician';
     case SocialPrescriber = 'Social prescriber';
     case SupportWorker = 'Support worker/carer';
     case Employer = 'Employer';
